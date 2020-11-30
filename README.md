@@ -1,5 +1,3 @@
-
-
 # Review for Evolutionary computation
 
  Note: All reference from Hod's slides if not specified
@@ -85,7 +83,7 @@ ref:[capsis](http://capsis.cirad.fr/capsis/documentation/optimisation)
 + connectivity matrix
 
 ### Speciation:
-related individuals that are able to breed amongn themselves, but are not able to breed with members of another species
+related individuals that are able to breed among themselves, but are not able to breed with members of another species
 
 ### Can allopatric &sympatric speciation occur in the TSP problem
 + Allopatric speciation: physical separation (different geographical area) of a population, e.g., evolve TSP in islands
@@ -347,8 +345,6 @@ $$ \frac{f'(i)}{\sum_{j=1}^n sh\left(d(i,j) \right)} \;\;\;\;\;\; sh\left(d \rig
 + Evaluate similarity between members of each sub-group on the Pareto front  
 + The resulting groups and similarity measures are used to  
 promote a diverse front of non-dominated solutions
-
-### Age-Fitness Pareto
 
 ### Examples of meta-objectives in EA
 + evolvability: age-pareto
