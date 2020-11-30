@@ -34,7 +34,7 @@
 ### Simplex algorithm (how to)
 
 + reflection/contraction/expansion/shrinkage
-+ reflect the point win the highest ojective function throuh centroid of the remaining simplex
++ reflect the point win the highest objective function through centroid of the remaining simplex
 + best point? Expansion
 + good point? Reflection
 + worst point? Shrinkage
@@ -131,7 +131,7 @@ Beware: Produces races on multiprocessor architectures
 ### GA parameters (list)
 
 + selection pressure
-+ cossover probability
++ crossover probability
 + mutation probability
 + population size
 ...
@@ -173,7 +173,7 @@ $$S_m(H) = (1-p_m)^{o(H)}$$
 + $p_m$ is the probability of mutating any bit.
 + schemata with higher order have a higher probability of being disrupted by mutation
 
-### Probability of a schema H with defineing length d(H) surviving single point crossover
+### Probability of a schema H with defining length d(H) surviving single point crossover
 
 $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 
@@ -182,7 +182,7 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 + d(H) = distance between the furthest two non-* symbols, e.g d(\*10\*)=1, d(\*1\*0\*)=2,
 
 + -1 gives lower bound
-+ schemata with a long defining length have a higher probablity to be disrupted by crossover
++ schemata with a long defining length have a higher probability to be disrupted by crossover
 
 ### How many schemata could a string of length N possibly include
 
@@ -196,7 +196,7 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 
 ### Estimating fitness associated with a gene
 
-<img src="images/04_BB_hypothesis_estimate_fitness.png" alt="04_p14" width="400px" />
+<img src="images/04_BB_hypothesis_estimate_fitness.png" alt="04_p14" width="500px" />
 
 ### Linkage (definition and why it's important)
 
@@ -360,7 +360,10 @@ metric
 
 + fitness sharing: Fitness is divided by number of similar individuals
   
-$$ \frac{f'(i)}{\sum_{j=1}^n sh\left(d(i,j) \right)} \;\;\;\;\;\; sh\left(d \right)=\begin{cases}1-\left(\frac{d}{\sigma_{share}}\right)^{\alpha} & d < \sigma_{share}\\0 & otherwise\end{cases}$$
+<!-- $$ \frac{f'(i)}{\sum_{j=1}^n sh\left(d(i,j) \right)} \;\;\;\;\;\; sh\left(d \right)=\begin{cases}1-\left(\frac{d}{\sigma_{share}}\right)^{\alpha} & d < \sigma_{share}\\0 & otherwise\end{cases}$$ -->
+<img src="images/fitness_sharing.png" alt="04_p14" width="400px" />
+
+
 
 + crowding: Replace individuals that are similar
   + Stochastically: The more similar, the more likely to be replaced
