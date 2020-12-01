@@ -2,10 +2,13 @@
 
  Note: All reference from Hod's slides if not specified
 
-### Difference between direct and indirect encoding
+ ### “No Free Lunch” Theorem
 
-+ direct encoding: one gene for every DOF
-+ indirect encoding:  evolves rules, more compact
++ No algorithm is universally better than any other algorithm ( for all problems)
++ Improvement in an algorithm makes it better for
+some problem and worse for others
++ Use suitable algorithm
++ Inductive bias
 
 ### In which case use parametric
 
@@ -24,12 +27,16 @@
 + needle in the haystack
 + deceptive gradient
 
+<img src="images/02_Parametric_deceptive.jpg" alt="02_p8" width="300px" />
+
 ### Hierarchical search (how to)
 
  1. sample n random points
  2. rank top m points
  3. sample a new point within the convex hull of the m points
  4. repeat from 2
+
+<img src="images/02_Parametric_hierarchical_search.png" alt="02_p8" width="200px" />
 
 ### Simplex algorithm (how to)
 
@@ -43,7 +50,7 @@
 
 ref:[capsis](http://capsis.cirad.fr/capsis/documentation/optimisation)
 
-### Simulated annealing (how to)
+### Simulated annealing
 
 - Let  $s =  s_0$
 - For  $k  = 0$  to $k_{max}$:
@@ -53,11 +60,18 @@ ref:[capsis](http://capsis.cirad.fr/capsis/documentation/optimisation)
     - $s←  s_{new}$
 - Output: the final state  s
 
+<!-- <img src="images/02_Parametric_simulated_annealing.jpg" alt="02_p39" width="450px" /> -->
+
 [link](https://en.wikipedia.org/wiki/Simulated_annealing)
 
-### beam search (how to)
+### beam search
 
 + generation->mutate->combine and rank->down select->repeat
+
+### Difference between direct and indirect encoding
+
++ direct encoding: one gene for every DOF
++ indirect encoding:  evolves rules, more compact
 
 ### GA variation operator
 
@@ -96,7 +110,7 @@ ref:[capsis](http://capsis.cirad.fr/capsis/documentation/optimisation)
 
 related individuals that are able to breed among themselves, but are not able to breed with members of another species
 
-### Can allopatric &sympatric speciation occur in the TSP problem
+### Can allopatric &sympatric speciation occur in the TSP problem?
 
 + Allopatric speciation: physical separation (different geographical area) of a population, e.g., evolve TSP in islands
 + sympatric speciation: (same geographic area) reproductive/behavioral separation. e.g. the same solution with reversed order
@@ -112,7 +126,7 @@ related individuals that are able to breed among themselves, but are not able to
   + $(\mu,\lambda)$ generates $\lambda$ new offspring and uses top $\mu$ to populate the next generation
   + Elitism: Keep the best k solutions around unmodified
 + steady state selection
-+ truncation selection
+
 
 ### steady state selection
 
@@ -122,6 +136,18 @@ related individuals that are able to breed among themselves, but are not able to
 4. If child better than selected individual, replace it
 
 Beware: Produces races on multiprocessor architectures
+
+### rank selection v.s. roulette wheel selection
+
++ roulette wheel selection may suffer from premature convergence
++ rank selection may not perform well due to small variations in large fitness
+
+### Combating signal to noise issue in selection
+
++ normalization:
+  + gaussian: subtract mean, divide by std
+  + linear: bring min-max to [0,1]
+  + nonlinear: boltzman selection F=exp(f/T)
 
 ### Premature convergence (cause & how to combat)
 
@@ -140,7 +166,7 @@ Beware: Produces races on multiprocessor architectures
 
 + The change in the frequency of an existing variant (allele) in the population due to random sampling
 
-The role of mutation and crossover in GA:
+### The role of mutation and crossover in GA:
 
 + mutation: incremental progress, refinement
 + crossover: recombination of building blocks, discovering new areas (initially possibly inferior)
@@ -151,12 +177,9 @@ The role of mutation and crossover in GA:
 
 <img src="images/04_BB_hypothesis_terms.png" alt="04_p3" width="300px" />
 
-### Order of a schema (definition)
-
-+ num of specified alleles in a gene
-
 ### How many different strings of length N does a schema of order "o" represent
 
++ Order of a schema = num of specified alleles in a gene
 + $2^{N-o}$
 
 | Schema | Order | Represented Strings             |
@@ -208,7 +231,7 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 
 + inversion: reorder the genes as we progress, orderings with tight linkage will prevail
 + evolve crossover point: introns/probabilities/junk DNA
-+ infer directly and decouple: linkage learning
++ infer directly and decouple: [linkage learning](https://edisciplinas.usp.br/pluginfile.php/365118/mod_resource/content/1/EcGA.pdf)
 
 ### Trait/pleiotropy/polygeny/epistasis
 
@@ -218,24 +241,8 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 + epistasis: genetic interaction, when the action of one gene is modified by one or more other independent genes
   + Supergenes: turn other genes on and off
 
-### Steady State selection (how to)
 
-+ choose parent at random
-+ create offspring
-+ choose someone  in population
-+ if child better than selected individual replace it
 
-### rank selection v.s. roulette wheel selection
-
-+ roulette wheel selection may suffer from premature convergence
-+ rank selection may not perform well due to small variations in large fitness
-
-### Combating signal to noise issue in selection
-
-+ normalization:
-  + gaussian: subtract mean, divide by std
-  + linear: bring min-max to [0,1]
-  + nonlinear: boltzman selection F=exp(f/T)
 
 ### Genetic algorithm vs. Genetic programming
 
@@ -264,7 +271,7 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 
 ### GP bloat
 
-+ solutions get unnecessarily large but do not add any meaningful content. e.g. F(x)=x+x-x
++ solutions get unnecessarily large but do not add any meaningful content. e.g. F(x)=x+``x-x``
 + combated using operator that reduce the size of the solution: pruning/snipping.
 
 ### Simplify symbolic tree
@@ -275,6 +282,9 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 ### evolve electronic circuit
 
 + parallel/serial/r/l/c...
+
+<img src="images/07_GP_evolve_circuit.png" alt="07_p31" width="250px" />
+
 
 ### evolve straight line mechanism
 
@@ -309,8 +319,7 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 ### Objective vs. subjective fitness  
 
 + Objective: Ground truth
-+ Subjective: Fitness as measured using co-evolving  
-metric
++ Subjective: Fitness as measured using co-evolving metric
 
 ### How to use coevolution on symbolic regression
 
@@ -369,11 +378,15 @@ metric
   + Stochastically: The more similar, the more likely to be replaced
   + Deterministically: Similar parent is replaced. d(p1,c1)+d(p2,c2)<? d(p1,c2)+d(p2+c1)
 + Niching: evolve individual in spatial/topological niches; migrate occasionally between niches
+
+<img src="images/09_diversity_spatial_niching.png
+" alt="spacial niching" width="300px" />
+
 + sequential( temporal) niching: restart many times, flatten areas where previous optima were found
 
 #### Diversity generation
 
-+ Hierarchical Fair Competition
++ Hierarchical Fair Competition ([link](https://cse.sc.edu/~jianjunh/paper/ecj_hfc.pdf))
 + Age-Layered Population Structure ([link](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.338.4656&rep=rep1&type=pdf))
   + why? Random individuals unlikely to be selected
 
@@ -391,8 +404,16 @@ metric
 + Select by Pareto-rank and Crowding distance  
 + Sort the population into a hierarchy of subpopulations based on the ordering of Pareto dominance.  
 + Evaluate similarity between members of each sub-group on the Pareto front  
-+ The resulting groups and similarity measures are used to  
-promote a diverse front of non-dominated solutions
++ The resulting groups and similarity measures are used to promote a diverse front of non-dominated solutions.
+([paper](https://web.njit.edu/~horacio/Math451H/download/2002-6-2-DEB-NSGA-II.pdf))
+
+### Pareto Coevolution
+
++ Use other individuals as dimensions of multi-objective evolution
++ Evolve partial solutions
++ Keep a partial solution as long as there is no other  partial solution better than it in all contexts (component is best in at least one context). 
+
+
 
 ### Examples of meta-objectives in EA
 
@@ -404,9 +425,3 @@ promote a diverse front of non-dominated solutions
 + modularity
 + cost of manufacturing
 + ...
-
-### Pareto Coevolution
-
-+ Use other individuals as dimensions of multi-objective evolution
-+ Evolve partial solutions
-+ Keep a partial solution as long as there is no other  partial solution better than it in all contexts (component is best in at least one context)
