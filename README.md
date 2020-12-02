@@ -14,7 +14,7 @@ some problem and worse for others
 
 + simpler problems, GA overkill
 + baseline, comparison/diagnostics
-+ "inner loop" of GA
++ "inner loop" of more complex algorithms
 
 ### In which case use use EA
 
@@ -71,12 +71,14 @@ ref:[capsis](http://capsis.cirad.fr/capsis/documentation/optimisation)
 ### Difference between direct and indirect encoding
 
 + direct encoding: one gene for every DOF
-+ indirect encoding:  evolves rules, more compact
++ indirect encoding:  evolves rules, more compact. e.g. evolve mass-spring parameters w.r.t centers
+
+<img src="images/indirect_encoding_mass_spring.png" alt="indirect encoding" width="450px" />
 
 ### GA variation operator
 
-+ mutation
-+ crossover: split and recombine parts from two individuals
++ mutation: change a chromosome, e.g. flip bits
++ crossover: split & recombine parts from two individuals
 + composition: concatenate two individuals
 
 ### Why GA works
@@ -241,9 +243,6 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 + epistasis: genetic interaction, when the action of one gene is modified by one or more other independent genes
   + Supergenes: turn other genes on and off
 
-
-
-
 ### Genetic algorithm vs. Genetic programming
 
 + strings v.s trees (open-ended representation)
@@ -373,22 +372,25 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 <img src="images/fitness_sharing.png" alt="04_p14" width="400px" />
 
 
-
 + crowding: Replace individuals that are similar
   + Stochastically: The more similar, the more likely to be replaced
   + Deterministically: Similar parent is replaced. d(p1,c1)+d(p2,c2)<? d(p1,c2)+d(p2+c1)
 + Niching: evolve individual in spatial/topological niches; migrate occasionally between niches
 
-<img src="images/09_diversity_spatial_niching.png
-" alt="spacial niching" width="300px" />
+  <img src="images/09_diversity_spatial_niching.png
+  " alt="spacial niching" width="250px" />
+  <img src="images/18_Review_topological_niching.jpg" alt="04_p14" width="200px" />
 
 + sequential( temporal) niching: restart many times, flatten areas where previous optima were found
 
 #### Diversity generation
++ why? Random individuals unlikely to be selected
++ Hierarchical Fair Competition ([paper](https://cse.sc.edu/~jianjunh/paper/ecj_hfc.pdf))
 
-+ Hierarchical Fair Competition ([link](https://cse.sc.edu/~jianjunh/paper/ecj_hfc.pdf))
-+ Age-Layered Population Structure ([link](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.338.4656&rep=rep1&type=pdf))
-  + why? Random individuals unlikely to be selected
+  <img src="images/hierarchical_fair_competition.png" alt="04_p14" width="400px" />
+
++ Age-Layered Population Structure ([paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.338.4656&rep=rep1&type=pdf))
+
 
 ### Disadvantage of weighting for multi-objective optimization
 
@@ -425,3 +427,15 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 + modularity
 + cost of manufacturing
 + ...
+
+### Baldwin effect
+
++ synergistic learning: the synergy between learning and evolution
++ genetic assimilation: plastic mechanisms are assimilated by the genotype; learned behaviors become instinctive
+
+### Evolution for distribution estimation
+e.g. One max
+
+<img src="images/Larranaga and Lozano, EDAs, Kluwer 2002.png" alt="04_p14" width="450px" />
+  
+  source:Larranaga and Lozano, EDAs, Kluwer 2002. p64
