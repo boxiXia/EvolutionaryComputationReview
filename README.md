@@ -381,15 +381,24 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
   " alt="spacial niching" width="250px" />
   <img src="images/18_Review_topological_niching.jpg" alt="04_p14" width="200px" />
 
-+ sequential( temporal) niching: restart many times, flatten areas where previous optima were found
++ sequential( temporal) niching: restart many times, flatten areas where previous optima were found.
+
+<!-- 1. Initialize: equate the modified fitness function with the raw fitness function
+2. Run the GA or other search technique using the modified fitness function, keeping a record of the best individual found in the run
+3. Update the modified fitness function to give a depression in the region near the best individual producing a new modified fitness function
+4. If the raw fitness of the best individual exceeds the solution threshold, display this as a solution
+5. If not all solutions have been found, return to step 2 -->
+
+<img src="images/sequential_niche.png" alt="04_p14" width="400px" /> (source: [paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.61.4189&rep=rep1&type=pdf))
 
 #### Diversity generation
+
 + why? Random individuals unlikely to be selected
-+ Hierarchical Fair Competition ([paper](https://cse.sc.edu/~jianjunh/paper/ecj_hfc.pdf))
++ Hierarchical Fair Competition. ([paper](https://cse.sc.edu/~jianjunh/paper/ecj_hfc.pdf))
 
   <img src="images/hierarchical_fair_competition.png" alt="04_p14" width="400px" />
 
-+ Age-Layered Population Structure ([paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.338.4656&rep=rep1&type=pdf))
++ Age-Layered Population Structure. ([paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.338.4656&rep=rep1&type=pdf))
 
 
 ### Disadvantage of weighting for multi-objective optimization
