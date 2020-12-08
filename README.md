@@ -117,6 +117,9 @@ related individuals that are able to breed among themselves, but are not able to
 + Allopatric speciation: physical separation (different geographical area) of a population, e.g., evolve TSP in islands
 + sympatric speciation: (same geographic area) reproductive/behavioral separation. e.g. the same solution with reversed order
 
+<!-- sympatric speciation: differentiation of species that coexist geographically,
+but that evolve to exploit different resources or ecological niches within the same environment -->
+
 ### GA Selection methods
 
 + fitness proportionate:
@@ -375,21 +378,21 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 + crowding: Replace individuals that are similar
   + Stochastically: The more similar, the more likely to be replaced
   + Deterministically: Similar parent is replaced. d(p1,c1)+d(p2,c2)<? d(p1,c2)+d(p2+c1)
-+ Niching: evolve individual in spatial/topological niches; migrate occasionally between niches
++ Niching: evolve individual in spatial/topological niches; migrate occasionally between niches. ([paper](http://www.leg.ufpr.br/~leonardo/artigos/tese_mahfoud.pdf))
 
-  <img src="images/09_diversity_spatial_niching.png
-  " alt="spacial niching" width="250px" />
-  <img src="images/18_Review_topological_niching.jpg" alt="04_p14" width="200px" />
+  <img src="images/09_diversity_spatial_niching.png" alt="spacial niching" width="320px" />
+  <img src="images/18_Review_topological_niching.jpg" alt="04_p14" width="220px" />
 
-+ sequential( temporal) niching: restart many times, flatten areas where previous optima were found.
++ sequential( temporal) niching: restart many times, flatten areas where previous optima were found. ([paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.61.4189&rep=rep1&type=pdf)):
 
-<!-- 1. Initialize: equate the modified fitness function with the raw fitness function
-2. Run the GA or other search technique using the modified fitness function, keeping a record of the best individual found in the run
-3. Update the modified fitness function to give a depression in the region near the best individual producing a new modified fitness function
-4. If the raw fitness of the best individual exceeds the solution threshold, display this as a solution
-5. If not all solutions have been found, return to step 2 -->
+  1. Initialize: equate the modified fitness function with the raw fitness function
+  2. Run the GA or other search technique using the modified fitness function, keeping a record of the best individual found in the run
+  3. Update the modified fitness function to give a depression in the region near the best individual producing a new modified fitness function
+  4. If the raw fitness of the best individual exceeds the solution threshold, display this as a solution
+  5. If not all solutions have been found, return to step 2
 
-<img src="images/sequential_niche.png" alt="04_p14" width="400px" /> (source: [paper](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.61.4189&rep=rep1&type=pdf))
+<img src="images/sequential_niche.png" alt="04_p14" width="400px" /> 
+<!-- source: Beasley et al 1993 -->
 
 #### Diversity generation
 
@@ -409,6 +412,16 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 
 + Select based on distance from the Pareto front  
 + Thinning and sampling
+
+### Pareto
+
++ Pareto efficiency/optimality: situation where no individual or preference criterion can be better off without making at least one individual or preference criterion worse off or without any loss thereof.
++ Pareto frontier: the set of all Pareto efficient allocations,
+
+<!-- ![pareto front](images/pareto_front_wikipedia.png) -->
+<img src="images/pareto_front_wikipedia.png" alt="04_p14" width="400px" />
+
+source: [wikipedia](https://en.wikipedia.org/wiki/Pareto_efficiency)
 
 ### Non-dominated Sorting Genetic Algorithm-II  (NSGA-II)  
 
@@ -443,8 +456,18 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 + genetic assimilation: plastic mechanisms are assimilated by the genotype; learned behaviors become instinctive
 
 ### Evolution for distribution estimation
-e.g. One max
 
 <img src="images/Larranaga and Lozano, EDAs, Kluwer 2002.png" alt="04_p14" width="450px" />
-  
+
+  e.g. One max:
+
+1. initial random population
+2. select top 50%
+3. estimate probability p(x=1|selected individual)
+4. generate new population based on the probability
+5. repeat from step 2
+
+![EDA One max](images/estimation_of_distribution_one_max_example.jpg)
+<!-- <img src="images/estimation_of_distribution_one_max_example.jpg" alt="04_p14" width="1000px" /> -->
+
   source:Larranaga and Lozano, EDAs, Kluwer 2002. p64
