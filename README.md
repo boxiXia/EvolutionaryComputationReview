@@ -260,14 +260,11 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 + crossover (large, non-random)
   + swap sub-trees
 
-### How to represent the symbolic expression
+### symbolic expression
 
-+ heap data structure
++ Representation: heap data structure
   + element k has children 2k+1 and 2k+2 (zero indexed)
-
-### How to evaluate symbolic tree (heap)
-
-+ evaluate at the bottom and work way up
++ evaluation (heap): evaluate at the bottom and work way up
   + replace variables with values
   + replace operator with the result of the operation
 
