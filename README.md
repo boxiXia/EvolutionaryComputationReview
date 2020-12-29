@@ -242,7 +242,7 @@ $$S_c(H)>=1-p_c(d(H)/(l-1))$$
 
 + trait: phenotypic characteristic
 + pleiotropy: one gene might affect several traits
-+ polygeney: one trait might be affected by several genes
++ polygeny: one trait might be affected by several genes
 + epistasis: genetic interaction, when the action of one gene is modified by one or more other independent genes
   + Supergenes: turn other genes on and off
 
